@@ -37,6 +37,11 @@ function movie() {
 
     let movie = input;
 
+    if (movie === '') {
+        console.log("If you haven't watched Mr. Nobody, you should!")
+        movie = 'Mr. Nobody'
+    }
+
     let queryURL = "http://www.omdbapi.com/?t=" + movie + "&y=&plot=short&apikey=trilogy";
 
     axios.get(queryURL)
@@ -44,8 +49,15 @@ function movie() {
         .then(
 
             function (response) {
-                console.log(response.data.Title)
-                console.log(response.data.Year);
+                console.log('------------------------------');
+                console.log('Title: ' + response.data.Title)
+                console.log('Year: ' + response.data.Year);
+                console.log('IMDB: ' + response.data.imdbRating);
+                console.log('Country: ' + response.data.Country);
+                console.log('Language: ' + response.data.Language);
+                console.log('Plot: ' + response.data.Plot);
+                console.log('Actors: ' + response.data.Actors);
+                console.log('------------------------------');
             }
         )
 }
@@ -57,6 +69,11 @@ function song() {
 
     let song = input;
 
+    if (song === '') {
+        console.log('Listen to this');
+        song = 'Mr. Brightside';
+    }
+
     spotify.search({
         type: 'track',
         query: song
@@ -64,8 +81,12 @@ function song() {
         if (error) {
             return console.log('Error occurred: ' + error);
         }
-
-        console.log(data.tracks.items[0].name);
+        console.log('------------------------------');
+        console.log('Track: ' + data.tracks.items[0].name);
+        console.log('Artist: ' + data.tracks.items[0].artists.name);
+        console.log('Album: ' + data.tracks.items[0].album.name);
+        console.log('Spotify Link: ' + data.tracks.items[0].album.external_urls.spotify);
+        console.log('------------------------------');
 
     });
 }
@@ -77,11 +98,16 @@ function concert() {
 
     let artist = input;
 
-    let queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+    if (movie === '') {
+        console.log('Please enter an artist')
+    } else {
 
-    axios.get(queryURL).then(
-        function (response) {
-            console.log(response.data[0]);
-        }
-    )
+        let queryURL = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp";
+
+        axios.get(queryURL).then(
+            function (response) {
+                console.log(response);
+            }
+        )
+    }
 }
