@@ -24,6 +24,17 @@ const Spotify = require("node-spotify-api");
 
 let spotify = new Spotify(keys.spotify);
 
+function logData(data) {
+    fs.appendFile("log.txt", data, function (error) {
+
+        // if an error was experienced we will log it.
+        if (error) {
+            console.log(error);
+        }
+
+    })
+};
+
 
 inquirer.prompt([{
         type: "list",
@@ -35,7 +46,7 @@ inquirer.prompt([{
         name: "input",
         message: "Enter song/movie/artist",
     }
-]).then(function(user) {
+]).then(function (user) {
 
     // switch statement checks the command and calls the corresponding function:
 
@@ -50,7 +61,7 @@ inquirer.prompt([{
             concert(user.input);
             break;
         default:
-            console.log('please enter a valid command');
+            console.log("please enter a valid command");
     }
 
 });
@@ -65,9 +76,9 @@ function movie(input) {
 
     // checks for a valid movie input:
 
-    if (movie === '') {
+    if (movie === "") {
         console.log("If you haven't watched Mr. Nobody, you should!")
-        movie = 'Mr. Nobody'
+        movie = "Mr. Nobody"
     }
 
     // creates a query url for use in the api call to OMDB:
@@ -82,16 +93,30 @@ function movie(input) {
 
             // takes the response and logs the relevant data to the console:
 
+
+
             function (response) {
-                console.log('------------------------------');
-                console.log('Title: ' + response.data.Title)
-                console.log('Year: ' + response.data.Year);
-                console.log('IMDB: ' + response.data.imdbRating);
-                console.log('Country: ' + response.data.Country);
-                console.log('Language: ' + response.data.Language);
-                console.log('Plot: ' + response.data.Plot);
-                console.log('Actors: ' + response.data.Actors);
-                console.log('------------------------------');
+
+
+                console.log("------------------------------");
+                console.log("Title: " + response.data.Title)
+                console.log("Year: " + response.data.Year);
+                console.log("IMDB: " + response.data.imdbRating);
+                console.log("Country: " + response.data.Country);
+                console.log("Language: " + response.data.Language);
+                console.log("Plot: " + response.data.Plot);
+                console.log("Actors: " + response.data.Actors);
+                console.log("------------------------------");
+
+                logData("------------------------------" + "\n");
+                logData("Title: " + response.data.Title + "\n");
+                logData("Year: " + response.data.Year + "\n");
+                logData("IMDB: " + response.data.imdbRating + "\n");
+                logData("Country: " + response.data.Country + "\n");
+                logData("Language: " + response.data.Language + "\n");
+                logData("Plot: " + response.data.Plot + "\n");
+                logData("Actors: " + response.data.Actors + "\n");
+
             }
         )
 }
@@ -107,29 +132,36 @@ function song(input) {
 
     // checks for a valid song input:
 
-    if (song === '') {
-        console.log('Listen to this');
-        song = 'Mr. Brightside';
+    if (song === "") {
+        console.log("Listen to this");
+        song = "Mr. Brightside";
     }
 
     // uses the spotify object (created from the keys object in keys.js) to .search() for a song:
 
     spotify.search({
-        type: 'track',
+        type: "track",
         query: song
     }, function (error, data) {
         if (error) {
-            return console.log('Error occurred: ' + error);
+            return console.log("Error occurred: " + error);
         }
+
 
         // logs the relevant data from the response object:
 
-        console.log('------------------------------');
-        console.log('Track: ' + data.tracks.items[0].name);
-        console.log('Artist: ' + data.tracks.items[0].artists[0].name);
-        console.log('Album: ' + data.tracks.items[0].album.name);
-        console.log('Spotify Link: ' + data.tracks.items[0].album.external_urls.spotify);
-        console.log('------------------------------');
+        console.log("------------------------------");
+        console.log("Track: " + data.tracks.items[0].name);
+        console.log("Artist: " + data.tracks.items[0].artists[0].name);
+        console.log("Album: " + data.tracks.items[0].album.name);
+        console.log("Spotify Link: " + data.tracks.items[0].album.external_urls.spotify);
+        console.log("------------------------------");
+        
+        logData("------------------------------" + "\n");
+        logData("Track: " + data.tracks.items[0].name + "\n");
+        logData("Artist: " + data.tracks.items[0].artists[0].name + "\n");
+        logData("Album: " + data.tracks.items[0].album.name + "\n");
+        logData("Spotify Link: " + data.tracks.items[0].album.external_urls.spotify + "\n");
 
     });
 }
@@ -145,8 +177,8 @@ function concert(input) {
 
     // checks for a valid artist input:
 
-    if (movie === '') {
-        console.log('Please enter an artist')
+    if (movie === "") {
+        console.log("Please enter an artist")
     } else {
 
         // creates a query url using the artist input by the user:
@@ -158,22 +190,27 @@ function concert(input) {
         axios.get(queryURL).then(
             function (response) {
 
+                // append the text into the "log.txt" file. if the file doesn"t exist, then it gets created
+
                 // loops through the events, limiting the number to 10 and logging the relevant information to the console:
 
                 for (let i = 0; i < 9; i++) {
-                    console.log('------------------------------');
+
+                    console.log("------------------------------");
                     // first letter uppercase taken from https://flaviocopes.com/how-to-uppercase-first-letter-javascript/
-                    console.log('Artist: ' + artist.charAt(0).toUpperCase() + artist.slice(1));
-                    console.log('Venue: ' + response.data[i].venue.name);
+                    console.log("Artist: " + artist.charAt(0).toUpperCase() + artist.slice(1));
+                    console.log("Venue: " + response.data[i].venue.name);
+
+                    logData("------------------------------" + "\n");
+                    logData("Artist: " + artist.charAt(0).toUpperCase() + artist.slice(1) + "\n");
+                    logData("Venue: " + response.data[i].venue.name + "\n");
 
                     // TO DO: display the datetime formatted with moment.js
 
                     // let date = response.data[i].datetime.moment().format("dddd, MMMM Do YYYY, h:mm:ss a")
                     // console.log(date);
-                    // console.log('Event date: ' + response.data[i].datetime);
+                    // console.log("Event date: " + response.data[i].datetime);
 
-
-                    console.log('------------------------------');
                 }
 
             }
