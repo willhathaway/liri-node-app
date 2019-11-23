@@ -18,14 +18,20 @@ const keys = require("./keys.js");
 
 const axios = require("axios")
 
+// moment.js:
+
+const moment = require("moment");
+
 // the spotify node api module allows api calls to be made to spotify:
 
 const Spotify = require("node-spotify-api");
 
 let spotify = new Spotify(keys.spotify);
 
+const seperator = "\n------------------------------\n";
+
 function logData(data) {
-    fs.appendFile("log.txt", data, function (error) {
+    fs.appendFile("log.txt", seperator + data, function (error) {
 
         // if an error was experienced we will log it.
         if (error) {
@@ -97,25 +103,27 @@ function movie(input) {
 
             function (response) {
 
+                let movieData = response.data;
+
+                let dataString = ["Title: " + movieData.Title,
+                "Year: " + movieData.Year,
+                "IMDB: " + movieData.imdbRating,
+                "Country: " + movieData.Country,
+                "Language: " + movieData.Language,
+                "Plot: " + movieData.Plot,
+                "Actors: " + movieData.Actors].join("\n");
 
                 console.log("------------------------------");
-                console.log("Title: " + response.data.Title)
-                console.log("Year: " + response.data.Year);
-                console.log("IMDB: " + response.data.imdbRating);
-                console.log("Country: " + response.data.Country);
-                console.log("Language: " + response.data.Language);
-                console.log("Plot: " + response.data.Plot);
-                console.log("Actors: " + response.data.Actors);
+                console.log("Title: " + movieData.Title)
+                console.log("Year: " + movieData.Year);
+                console.log("IMDB: " + movieData.imdbRating);
+                console.log("Country: " + movieData.Country);
+                console.log("Language: " + movieData.Language);
+                console.log("Plot: " + movieData.Plot);
+                console.log("Actors: " + movieData.Actors);
                 console.log("------------------------------");
 
-                logData("------------------------------" + "\n");
-                logData("Title: " + response.data.Title + "\n");
-                logData("Year: " + response.data.Year + "\n");
-                logData("IMDB: " + response.data.imdbRating + "\n");
-                logData("Country: " + response.data.Country + "\n");
-                logData("Language: " + response.data.Language + "\n");
-                logData("Plot: " + response.data.Plot + "\n");
-                logData("Actors: " + response.data.Actors + "\n");
+                logData(dataString);
 
             }
         )
@@ -147,21 +155,23 @@ function song(input) {
             return console.log("Error occurred: " + error);
         }
 
+        let songData = data.tracks.items[0];
 
         // logs the relevant data from the response object:
 
         console.log("------------------------------");
-        console.log("Track: " + data.tracks.items[0].name);
-        console.log("Artist: " + data.tracks.items[0].artists[0].name);
-        console.log("Album: " + data.tracks.items[0].album.name);
-        console.log("Spotify Link: " + data.tracks.items[0].album.external_urls.spotify);
+        console.log("Track: " + songData.name);
+        console.log("Artist: " + songData.artists[0].name);
+        console.log("Album: " + songData.album.name);
+        console.log("Spotify Link: " + songData.album.external_urls.spotify);
         console.log("------------------------------");
+
+        let dataString = ["Track: " + songData.name,
+        "Artist: " + songData.artists[0].name,
+        "Album: " + songData.album.name,
+        "Spotify Link: " + songData.album.external_urls.spotify].join("\n");
         
-        logData("------------------------------" + "\n");
-        logData("Track: " + data.tracks.items[0].name + "\n");
-        logData("Artist: " + data.tracks.items[0].artists[0].name + "\n");
-        logData("Album: " + data.tracks.items[0].album.name + "\n");
-        logData("Spotify Link: " + data.tracks.items[0].album.external_urls.spotify + "\n");
+        logData(dataString);
 
     });
 }
@@ -196,14 +206,16 @@ function concert(input) {
 
                 for (let i = 0; i < 9; i++) {
 
+                    let dataString = ["Artist: " + artist.charAt(0).toUpperCase() + artist.slice(1),
+                    "Venue: " + response.data[i].venue.name,
+                    "Datetime: " + response.data[i].datetime].join("\n");
+
                     console.log("------------------------------");
-                    // first letter uppercase taken from https://flaviocopes.com/how-to-uppercase-first-letter-javascript/
+                    // first letter uppercase code taken from https://flaviocopes.com/how-to-uppercase-first-letter-javascript/
                     console.log("Artist: " + artist.charAt(0).toUpperCase() + artist.slice(1));
                     console.log("Venue: " + response.data[i].venue.name);
 
-                    logData("------------------------------" + "\n");
-                    logData("Artist: " + artist.charAt(0).toUpperCase() + artist.slice(1) + "\n");
-                    logData("Venue: " + response.data[i].venue.name + "\n");
+                    logData(dataString);
 
                     // TO DO: display the datetime formatted with moment.js
 
@@ -222,4 +234,3 @@ function concert(input) {
 
 // moment.js the datetime
 // do-what-it-says
-// output data to log.txt file

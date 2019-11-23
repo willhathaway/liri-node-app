@@ -11,3 +11,47 @@ Plot: An exploration of how the actions of individual lives impact one another i
 IMDB: 7.4
 Country: Germany, USA, Hong Kong, Singapore, China
 Year: 2012
+------------------------------
+Title: Sorry to Bother You
+Country: USA
+Plot: In an alternate present-day version of Oakland, telemarketer Cassius Green discovers a magical key to professional success, propelling him into a universe of greed.
+Year: 2018
+IMDB: 7.0
+Actors: LaKeith Stanfield, Tessa Thompson, Jermaine Fowler, Omari Hardwick
+Language: English
+------------------------------
+Artist: Lizzo
+Venue: Nashville Municipal Auditorium
+Datetime: 2019-11-30T18:00:00
+------------------------------
+Artist: Lizzo
+Venue: Amalie Arena
+Datetime: 2019-12-01T19:00:00
+------------------------------
+Artist: Lizzo
+Venue: Dickies Arena
+Datetime: 2019-12-03T19:30:00
+------------------------------
+Artist: Lizzo
+Venue: The Forum
+Datetime: 2019-12-06T19:30:00
+------------------------------
+Artist: Lizzo
+Venue: Bankers Life Fieldhouse
+Datetime: 2019-12-10T19:30:00
+------------------------------
+Artist: Lizzo
+Venue: SAP Center at San Jose
+Datetime: 2019-12-05T19:00:00
+------------------------------
+Artist: Lizzo
+Venue: Madison Square Garden
+Datetime: 2019-12-13T19:00:00
+------------------------------
+Artist: Lizzo
+Venue: TD Garden
+Datetime: 2019-12-15T18:00:00
+------------------------------
+Artist: Lizzo
+Venue: Xfinity Theatre
+Datetime: 2019-12-17T19:30:00
