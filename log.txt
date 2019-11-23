@@ -1,57 +1,66 @@
 ------------------------------
+SONG:
+Track: Yesterday - Remastered 2009
 Artist: The Beatles
 Album: Help! (Remastered)
-Track: Yesterday - Remastered 2009
 Spotify Link: https://open.spotify.com/album/0PT5m6hwPRrpBwIHVnvbFX
 ------------------------------
+MOVIE:
 Title: Cloud Atlas
-Language: English, Spanish, Ukrainian
-Actors: Tom Hanks, Halle Berry, Jim Broadbent, Hugo Weaving
-Plot: An exploration of how the actions of individual lives impact one another in the past, present and future, as one soul is shaped from a killer into a hero, and an act of kindness ripples across centuries to inspire a revolution.
+Year: 2012
 IMDB: 7.4
 Country: Germany, USA, Hong Kong, Singapore, China
-Year: 2012
+Language: English, Spanish, Ukrainian
+Plot: An exploration of how the actions of individual lives impact one another in the past, present and future, as one soul is shaped from a killer into a hero, and an act of kindness ripples across centuries to inspire a revolution.
+Actors: Tom Hanks, Halle Berry, Jim Broadbent, Hugo Weaving
 ------------------------------
-Title: Sorry to Bother You
-Country: USA
-Plot: In an alternate present-day version of Oakland, telemarketer Cassius Green discovers a magical key to professional success, propelling him into a universe of greed.
-Year: 2018
-IMDB: 7.0
-Actors: LaKeith Stanfield, Tessa Thompson, Jermaine Fowler, Omari Hardwick
-Language: English
-------------------------------
+CONCERT:
 Artist: Lizzo
 Venue: Nashville Municipal Auditorium
-Datetime: 2019-11-30T18:00:00
+Date: 11/30/2019
 ------------------------------
-Artist: Lizzo
-Venue: Amalie Arena
-Datetime: 2019-12-01T19:00:00
-------------------------------
+CONCERT:
 Artist: Lizzo
 Venue: Dickies Arena
-Datetime: 2019-12-03T19:30:00
+Date: 12/03/2019
 ------------------------------
+CONCERT:
 Artist: Lizzo
-Venue: The Forum
-Datetime: 2019-12-06T19:30:00
+Venue: Amalie Arena
+Date: 12/01/2019
 ------------------------------
-Artist: Lizzo
-Venue: Bankers Life Fieldhouse
-Datetime: 2019-12-10T19:30:00
-------------------------------
-Artist: Lizzo
-Venue: SAP Center at San Jose
-Datetime: 2019-12-05T19:00:00
-------------------------------
+CONCERT:
 Artist: Lizzo
 Venue: Madison Square Garden
-Datetime: 2019-12-13T19:00:00
+Date: 12/13/2019
 ------------------------------
+CONCERT:
 Artist: Lizzo
 Venue: TD Garden
-Datetime: 2019-12-15T18:00:00
+Date: 12/15/2019
 ------------------------------
+CONCERT:
 Artist: Lizzo
 Venue: Xfinity Theatre
-Datetime: 2019-12-17T19:30:00
+Date: 12/17/2019
+------------------------------
+CONCERT:
+Artist: Lizzo
+Venue: Bankers Life Fieldhouse
+Date: 12/10/2019
+------------------------------
+CONCERT:
+Artist: Lizzo
+Venue: The Forum
+Date: 12/06/2019
+------------------------------
+CONCERT:
+Artist: Lizzo
+Venue: SAP Center at San Jose
+Date: 12/05/2019
+------------------------------
+SONG:
+Track: Ain't It Fun
+Artist: Paramore
+Album: Paramore
+Spotify Link: https://open.spotify.com/album/4sgYpkIASM1jVlNC8Wp9oF
