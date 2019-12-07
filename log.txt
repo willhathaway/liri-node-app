@@ -64,3 +64,9 @@ Track: Ain't It Fun
 Artist: Paramore
 Album: Paramore
 Spotify Link: https://open.spotify.com/album/4sgYpkIASM1jVlNC8Wp9oF
+------------------------------
+SONG:
+Track: Yesterday - Remastered 2009
+Artist: The Beatles
+Album: Help! (Remastered)
+Spotify Link: https://open.spotify.com/album/0PT5m6hwPRrpBwIHVnvbFX
